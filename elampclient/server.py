@@ -55,5 +55,6 @@ class Server(object):
         response = self.api_requester.do(self.token, api_method, http_method, timeout=timeout, **kwargs)
         response_json = json.loads(response.text)
         response_json["headers"] = dict(response.headers)
+        response_json['status_code'] = response.status_code
 
         return json.dumps(response_json)
