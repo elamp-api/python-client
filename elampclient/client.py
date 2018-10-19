@@ -48,9 +48,8 @@ class eLampClient(object):
             requester as post_data and will be passed along to the API.
             Example::
                 sc.server.api_call(
-                    "channels.setPurpose",
-                    channel="CABC12345",
-                    purpose="Writing some code!"
+                    "libraries",
+                    identifier="LIB12345"
                 )
         :Returns:
             str -- returns the text of the HTTP response.
