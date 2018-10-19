@@ -5,7 +5,7 @@ class LibraryAPIMethods(BaseAPIMethods):
 
     def __init__(self, client):
         super(LibraryAPIMethods, self).__init__(client)
-        self.BASE_URL = 'compose/v1/libraries'
+        self.BASE_URL = 'v1/libraries'
 
     def list(self, skill=None, **kwargs):
         if skill:

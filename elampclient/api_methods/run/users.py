@@ -5,7 +5,7 @@ class UserAPIMethods(BaseAPIMethods):
 
     def __init__(self, client):
         super(UserAPIMethods, self).__init__(client)
-        self.BASE_URL = 'run/v1/users'
+        self.BASE_URL = 'v1/users'
 
     def list(self, **kwargs):
         return self.client.api_call(

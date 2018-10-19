@@ -5,7 +5,7 @@ class SkillAPIMethods(BaseAPIMethods):
 
     def __init__(self, client):
         super(SkillAPIMethods, self).__init__(client)
-        self.BASE_URL = 'compose/v1/skills'
+        self.BASE_URL = 'v1/skills'
 
     def list(self, skill=None, **kwargs):
         if skill:

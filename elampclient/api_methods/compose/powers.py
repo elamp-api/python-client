@@ -5,7 +5,7 @@ class PowerAPIMethods(BaseAPIMethods):
 
     def __init__(self, client):
         super(PowerAPIMethods, self).__init__(client)
-        self.BASE_URL = 'compose/v1/powers'
+        self.BASE_URL = 'v1/powers'
 
     def list(self, user=None, **kwargs):
         if user is not None:

@@ -5,7 +5,7 @@ class QualiferAPIMethods(BaseAPIMethods):
 
     def __init__(self, client):
         super(QualiferAPIMethods, self).__init__(client)
-        self.BASE_URL = 'compose/v1/qualifiers'
+        self.BASE_URL = 'v1/qualifiers'
 
     def list(self, **kwargs):
         return self.client.api_call(

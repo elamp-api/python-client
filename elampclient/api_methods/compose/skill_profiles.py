@@ -5,7 +5,7 @@ class SkillProfileAPIMethods(BaseAPIMethods):
 
     def __init__(self, client):
         super(SkillProfileAPIMethods, self).__init__(client)
-        self.BASE_URL = 'compose/v1/profiles'
+        self.BASE_URL = 'v1/profiles'
 
     def list(self, **kwargs):
         return self.client.api_call(

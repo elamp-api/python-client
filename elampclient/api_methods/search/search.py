@@ -5,7 +5,7 @@ class SearchAPIMethods(BaseAPIMethods):
 
     def __init__(self, client):
         super(SearchAPIMethods, self).__init__(client)
-        self.BASE_URL = 'search/v1/search'
+        self.BASE_URL = 'v1/search'
 
     def list(self, skill=None, **kwargs):
         if skill:
