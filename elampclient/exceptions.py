@@ -34,6 +34,17 @@ class eLampClientNotAuthedError(eLampClientError, ValueError):
         self.response_body = response_body
 
 
+class eLampClientInvalidCredentialsError(eLampClientError, ValueError):
+    """
+    Error raised when responses returns an not authed exception
+    """
+    def __init__(self, response_body):
+        super(eLampClientInvalidCredentialsError, self).__init__(
+            "invalid credentials were provided: {0}".format(response_body)
+        )
+        self.response_body = response_body
+
+
 class eLampClientUnsufficentScopesError(eLampClientError, ValueError):
     """
     Error raised when api client has unsufficent scopes exception
