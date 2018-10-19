@@ -51,4 +51,6 @@ setup(name='elampclient',
           'websocket-client >=0.35, <1.0a0',
           'requests >=2.11, <3.0a0',
           'six >=1.10, <2.0a0',
+          'PyJWT >=1.6.4',
+          'cryptography >=2.3'
       ])
