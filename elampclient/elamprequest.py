@@ -43,6 +43,13 @@ class eLampRequest(object):
         else:
             self.custom_user_agent = [[name, version]]
 
+    def is_json_data(self, data):
+        try:
+            json_object = json.loads(data)
+        except ValueError:
+            return False
+        return True
+
     def do(self, token, request="?", http_method='post', post_data=None, domain="api.elamp.fr", timeout=None):
         """
         Perform a POST request to the eLamp Web API
@@ -69,16 +76,24 @@ class eLampRequest(object):
 
         post_data = post_data or {}
 
+        if isinstance(post_data, str) and self.is_json_data(post_data):
+            headers['Content-Type'] = 'application/json'
+        elif isinstance(post_data, (list, dict)):
+            try:
+                post_data = json.dumps(post_data)
+                headers['Content-Type'] = 'application/json'
+            except ValueError:
+                pass
+
+
         # Convert any params which are list-like to JSON strings
         # Example: `attachments` is a dict, and needs to be passed as JSON
-        for k, v in six.iteritems(post_data):
-            if isinstance(v, (list, dict)):
-                post_data[k] = json.dumps(v)
+        # for k, v in six.iteritems(post_data):
+        #    if isinstance(v, (list, dict)):
+        #        post_data[k] = json.dumps(v)
 
         # Submit the request
-        print(url)
-        print(post_data)
-        print(http_method)
+        print(http_method, url)
         return requests.request(
             http_method,
             url,
