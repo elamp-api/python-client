@@ -6,7 +6,7 @@ import requests
 
 from elampclient.exceptions import eLampClientInvalidCredentialsError
 
-AUTH_ENDPOINT = 'https://www.elamp.fr/oauth/token'
+AUTH_ENDPOINT = 'https://elamp.fr/oauth/token'
 
 
 class JWTAuth(object):
@@ -42,7 +42,8 @@ class JWTAuth(object):
             'exp': expire_at,
             'iat': datetime.datetime.utcnow()
         }
-        self.assertion = jwt.encode(payload, self.private_key, algorithm='RS256')
+        self.assertion = jwt.encode(
+            payload, self.private_key, algorithm='RS256')
 
     def authenticate(self):
         if self.assertion is None:
